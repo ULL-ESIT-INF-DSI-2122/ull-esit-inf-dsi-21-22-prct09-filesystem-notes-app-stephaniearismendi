@@ -3,4 +3,3 @@ dist
 .nyc_output
 coverage
 .gitignore
-sonar-project.properties
