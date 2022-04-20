@@ -1,6 +1,7 @@
 {
   "entryPoints": [
-    "./src/basicFunctions.ts"
+    "./src/AddMapReduce.ts",
+    "./src/reduce.ts"
   ],
   "out": "./docs"
 }
