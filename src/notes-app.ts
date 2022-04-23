@@ -49,9 +49,9 @@ yargs.command({
         } else {
           colorFinal = 'red';
         }
-        const newTitle:string = argv.title.replace(/\s/g, '-');
-        nota.createNote(argv.user, newTitle, argv.body, colorFinal);
       }
+      const newTitle:string = argv.title.replace(/\s/g, '-');
+      nota.createNote(argv.user, newTitle, argv.body, colorFinal);
     }
   },
 });
