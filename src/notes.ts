@@ -73,11 +73,13 @@ export class Notes {
      * Method that searches for a note and prints it
      */
     public readNote(user:string, title:string):void {
+      this.setPath(user);
       const notePath:string = this._path + '/' + title + '.json';
       if (fs.existsSync(notePath)) {
         const nota:any = this.readJSON(notePath);
         const body = nota.body;
         const color = nota.color;
+        console.log(chalk.green(`The note ${title} contains the following content: `));
         this.printColor(color, body);
       } else {
         console.log(chalk.red('The note does not exist.'));
