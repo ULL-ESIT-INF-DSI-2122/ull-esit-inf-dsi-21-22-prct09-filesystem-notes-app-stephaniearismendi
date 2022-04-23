@@ -91,15 +91,19 @@ export class Notes {
       this.setPath(user);
       if (fs.existsSync(this._path)) {
         const notasDir = fs.readdirSync(this._path);
-        console.log(chalk.green('The notes are listed below: '));
-        for (let i:number = 0; i < notasDir.length; i++) {
-          const nota = this.readJSON(this._path + '/' + notasDir[i]);
-          const title = nota.title;
-          const color = nota.color;
-          this.printColor(color, title);
+        if (notasDir.length > 0) {
+          console.log(chalk.green('The notes are listed below: '));
+          for (let i:number = 0; i < notasDir.length; i++) {
+            const nota = this.readJSON(this._path + '/' + notasDir[i]);
+            const title = nota.title;
+            const color = nota.color;
+            this.printColor(color, title);
+          }
+        } else {
+          console.log(chalk.red('No notes to show.'));
         }
       } else {
-        console.log(chalk.red('No notes to show.'));
+        console.log(chalk.red(`User ${user} have not created any note yet.`));
       }
     }
     /**
