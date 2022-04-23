@@ -37,7 +37,7 @@ export class Notes {
      * @param body body of the note
      * @param color color of the note
      */
-    public createNote(user:string, title:string, body:string, color:string):void {
+    public createNote(user:string, title:string, body:string, color:string):number {
       this.setPath(user);
       this.createFolder();
       const filepath = `${this._path}/${title}.json`;
@@ -48,8 +48,10 @@ export class Notes {
           color: color,
         }));
         console.log(chalk.green(`The note ${title} has been successfully created.`));
-      } else if (fs.existsSync(filepath)) {
+        return 1;
+      } else {
         console.log(chalk.red(`The note ${title} already exists.`));
+        return 0;
       }
     }
     /**
@@ -58,7 +60,7 @@ export class Notes {
      * @param color selected color
      * @param cadena string to print
      */
-    public printColor(color:string, cadena:string) {
+    private printColor(color:string, cadena:string) {
       if (color === 'red') {
         console.log(chalk.red(cadena));
       } else if (color === 'green') {
@@ -72,7 +74,7 @@ export class Notes {
     /**
      * Method that searches for a note and prints it
      */
-    public readNote(user:string, title:string):void {
+    public readNote(user:string, title:string):number {
       this.setPath(user);
       const notePath:string = this._path + '/' + title + '.json';
       if (fs.existsSync(notePath)) {
@@ -81,15 +83,17 @@ export class Notes {
         const color = nota.color;
         console.log(chalk.green(`The note ${title} contains the following content: `));
         this.printColor(color, body);
+        return 1;
       } else {
         console.log(chalk.red('The note does not exist.'));
+        return 0;
       }
     }
     /**
      * Method that lists all the notes of a user
      * @param user name of the user
      */
-    public listNotes(user:string):void {
+    public listNotes(user:string):number {
       this.setPath(user);
       if (fs.existsSync(this._path)) {
         const notasDir = fs.readdirSync(this._path);
@@ -101,11 +105,14 @@ export class Notes {
             const color = nota.color;
             this.printColor(color, title);
           }
+          return 1;
         } else {
           console.log(chalk.red('No notes to show.'));
+          return 0;
         }
       } else {
         console.log(chalk.red(`User ${user} have not created any note yet.`));
+        return 0;
       }
     }
     /**
@@ -113,13 +120,15 @@ export class Notes {
      * @param user name of the user
      * @param title title of the note
      */
-    public deleteNote(user:string, title:string):void {
+    public deleteNote(user:string, title:string):number {
       this.setPath(user);
       if (fs.existsSync(this._path + '/' + title + '.json')) {
         fs.unlinkSync(this._path + '/' + title + '.json');
         console.log(chalk.green(`The note ${title} has been removed successfully.`));
+        return 1;
       } else {
         console.log(chalk.red('You cannot delete a note that does not exist.'));
+        return 0;
       }
     }
     /**
@@ -129,7 +138,7 @@ export class Notes {
      * @param body new body of the note
      * @param color new color of the note
      */
-    public editNote(user:string, title:string, body:string, color:string):void {
+    public editNote(user:string, title:string, body:string, color:string):number {
       this.setPath(user);
       if (fs.existsSync(this._path + '/' + title + '.json')) {
         const nota:any = this.readJSON(this._path + '/' + title + '.json');
@@ -137,8 +146,10 @@ export class Notes {
         nota.color = color;
         fs.writeFileSync(this._path + '/' + title + '.json', JSON.stringify(nota));
         console.log(chalk.green(`The note ${title} has been edited successfully.`));
+        return 1;
       } else {
         console.log(chalk.red('You cannot edit a note that does not exist.'));
+        return 0;
       }
     }
 }
