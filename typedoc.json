@@ -1,7 +1,7 @@
 {
   "entryPoints": [
-    "./src/AddMapReduce.ts",
-    "./src/reduce.ts"
+    "./src/notes-app.ts",
+    "./src/notes.ts"
   ],
   "out": "./docs"
 }
