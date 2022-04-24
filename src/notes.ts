@@ -114,6 +114,7 @@ export class Notes {
         console.log(chalk.red(`User ${user} have not created any note yet.`));
         return 0;
       }
+      console.log('');
     }
     /**
      * Method that deletes a note
