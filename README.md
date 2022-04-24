@@ -11,10 +11,10 @@
     <a href="https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi">
         <img alt="GitHub" src="https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi&metric=alert_status">
     </a>
-
+    <a href="https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi">
+        <img alt="GitHub" src="https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi&metric=sqale_rating">
+    </a>
 </p>
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi)
 
 En este repositorio se aloja un ejemplo sencillo que ilustra integración continua de código fuente escrito en TypeScript y
 ejecutado en Node.js a través del uso de [GitHub Actions](https://docs.github.com/en/actions).
