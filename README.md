@@ -7,10 +7,12 @@
     <a href="https://github.com/ULL-ESIT-INF-DSI-2122/github-actions-typescript-nodejs-ci/actions/workflows/tests.js.yml">
         <img alt="Tests" src="https://github.com/ULL-ESIT-INF-DSI-2122/github-actions-typescript-nodejs-ci/actions/workflows/tests.js.yml/badge.svg">
     </a>
-    <a href='https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/github-actions-typescript-nodejs-ci?branch=main'>
-        <img src='https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/github-actions-typescript-nodejs-ci/badge.svg?branch=main' alt='Coverage Status' />
-    </a>
+    <a href='https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi?branch=main'><img src='https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-stephaniearismendi/badge.svg?branch=main' alt='Coverage Status' /></a>
+
+
 </p>
+
+
 
 En este repositorio se aloja un ejemplo sencillo que ilustra integración continua de código fuente escrito en TypeScript y
 ejecutado en Node.js a través del uso de [GitHub Actions](https://docs.github.com/en/actions).
