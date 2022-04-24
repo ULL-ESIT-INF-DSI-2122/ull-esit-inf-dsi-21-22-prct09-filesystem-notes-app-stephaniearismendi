@@ -12,7 +12,7 @@ export class Notes {
      * Path Setter
      */
     private setPath(user:string):void {
-      this._path = `/home/usuario/practica_9/Notas/${user}`;
+      this._path = `./Notas/${user}`;
     }
     /**
      * Method that creates a directory to store the notes
