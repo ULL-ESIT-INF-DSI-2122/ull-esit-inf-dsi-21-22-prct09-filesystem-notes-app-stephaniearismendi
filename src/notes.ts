@@ -20,7 +20,7 @@ export class Notes {
      */
     private createFolder() {
       if (!fs.existsSync(this._path)) {
-        fs.mkdirSync(this._path);
+        fs.mkdirSync(this._path, {recursive: true});
       }
     }
     /**
