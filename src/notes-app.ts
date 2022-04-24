@@ -4,6 +4,20 @@ import chalk from 'chalk';
 
 const nota = new Notes();
 
+function checkColor(color:string):string {
+  const _colors: string[] = ['red', 'green', 'blue', 'yellow'];
+  let colorFinal:string = '';
+  for (let i: number = 0; i < _colors.length; i++) {
+    if (color === _colors[i]) {
+      colorFinal = color;
+      break;
+    } else {
+      colorFinal = 'red';
+    }
+  }
+  return colorFinal;
+}
+
 /**
  * Command to create a note
  * It checks if the color is valid, if not it defaults to red
@@ -42,14 +56,7 @@ yargs.command({
     if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.body === 'string' && typeof argv.color === 'string') {
       console.log(chalk.green(`Adding note ${argv.title}`));
       let colorFinal:string = ' ';
-      const _colors: string[] = ['red', 'green', 'blue', 'yellow'];
-      for (let i: number = 0; i < _colors.length; i++) {
-        if (argv.color === _colors[i]) {
-          colorFinal = argv.color;
-        } else {
-          colorFinal = 'red';
-        }
-      }
+      colorFinal = checkColor(argv.color);
       const newTitle:string = argv.title.replace(/\s/g, '-');
       nota.createNote(argv.user, newTitle, argv.body, colorFinal);
     }
@@ -174,15 +181,8 @@ yargs.command({
     if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.body === 'string' && typeof argv.color === 'string') {
       const newTitle:string = argv.title.replace(/\s/g, '-');
       let colorFinal:string = ' ';
-      const _colors: string[] = ['red', 'green', 'blue', 'yellow'];
-      for (let i: number = 0; i < _colors.length; i++) {
-        if (argv.color === _colors[i]) {
-          colorFinal = argv.color;
-        } else {
-          colorFinal = 'red';
-        }
-        nota.editNote(argv.user, newTitle, argv.body, colorFinal);
-      }
+      colorFinal = checkColor(argv.color);
+      nota.editNote(argv.user, newTitle, argv.body, colorFinal);
     }
   },
 });
